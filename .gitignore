@@ -70,3 +70,8 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# Auto-generated Unity assets of transient nature.
+/[Aa]ssets/NaninovelData/Transient*
+# Transient artifacts of the external tools.
+/[Aa]ssets/NaninovelData/.nani/Transient*
