@@ -1,0 +1,8 @@
+@back Space
+@char rect
+rect: Hello!
+rect: What's your name?
+@input playerName summary:"What's your name?" value:Hero
+@stop
+rect: Nice to meet you, {playerName}!
+@stop
