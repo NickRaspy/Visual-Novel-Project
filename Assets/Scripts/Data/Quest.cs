@@ -1,47 +1,33 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace VNP.Data
 {
-    public class MainQuest : Quest
+    [Serializable]
+    public class InGameQuest
     {
-        private readonly List<Quest> _subQuests = new();
-
-        public MainQuest(string id, string title) : base(id, title) { }
-
-        public void AddSubQuest(Quest quest)
+        public Quest quest;
+        public QuestStatus status = QuestStatus.Inactive;
+        public int currentProgress = 0;
+        public void SetStatus(QuestStatus newStatus)
         {
-            _subQuests.Add(quest);
-        }
-
-        public void CheckCompletion()
-        {
-            if (Status == QuestStatus.Completed) return;
-
-            bool completed = _subQuests.All(q => q.Status == QuestStatus.Completed);
-
-            if (completed)
-                Status = QuestStatus.Completed;
+            status = newStatus;
         }
     }
 
+    [Serializable]
     public class Quest
     {
-        public string Id { get; private set; }
-        public string Title { get; private set; }
-        public QuestStatus Status { get; protected set; }
+        public string id;
+        public string title;
+        public List<Step> progress;
+    }
 
-        public Quest(string id, string title)
-        {
-            Id = id;
-            Title = title;
-            Status = QuestStatus.Inactive;
-        }
-
-        public virtual void SetStatus(QuestStatus newStatus)
-        {
-            Status = newStatus;
-        }
+    [Serializable]
+    public class Step
+    {
+        public string task;
     }
 
     public enum QuestStatus
