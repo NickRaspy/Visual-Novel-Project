@@ -3,6 +3,7 @@
 rect: Hello!
 rect: What's your name?
 @input playerName summary:"What's your name?" value:Hero
+@startQuest questId:main_quest
 @stop
 rect: Nice to meet you, {playerName}!
 @stop

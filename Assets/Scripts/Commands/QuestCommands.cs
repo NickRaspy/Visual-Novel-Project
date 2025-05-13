@@ -1,5 +1,4 @@
 using Naninovel;
-using UnityEngine;
 using VNP.Services;
 
 namespace VNP.Commands
@@ -11,6 +10,18 @@ namespace VNP.Commands
         public override UniTask ExecuteAsync(AsyncToken asyncToken = default)
         {
             Engine.GetService<QuestService>().StartQuest(questId);
+            return UniTask.CompletedTask;
+        }
+    }
+
+    [CommandAlias("completeTask")]
+    public class TaskComplete : Command
+    {
+        public StringParameter questId;
+        public StringParameter taskId;
+        public override UniTask ExecuteAsync(AsyncToken asyncToken = default)
+        {
+            Engine.GetService<QuestService>().CompleteTask(questId, taskId);
             return UniTask.CompletedTask;
         }
     }

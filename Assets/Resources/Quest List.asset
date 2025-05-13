@@ -12,4 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 315f22dfa2d03764f969366e8cf6c591, type: 3}
   m_Name: Quest List
   m_EditorClassIdentifier: 
-  Quests: []
+  Quests:
+  - id: main_quest
+    title: The Main Quest
+    progress:
+    - tasks:
+      - id: test_1
+        title: Test 1
+    - tasks:
+      - id: test_2
+        title: Test 2
+      - id: test_3
+        title: Test 3
+    progressCount: 0
