@@ -75,3 +75,5 @@ crashlytics-build.properties
 /[Aa]ssets/NaninovelData/Transient*
 # Transient artifacts of the external tools.
 /[Aa]ssets/NaninovelData/.nani/Transient*
+
+/[Aa]ssets/.qodo
