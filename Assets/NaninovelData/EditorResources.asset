@@ -144,16 +144,28 @@ MonoBehaviour:
     - name: ScriptNavigatorUI
       pathPrefix: UI
       guid: 735d6aa767879aa469134858c5b2f0a7
+    - name: MainUI
+      pathPrefix: UI
+      guid: f4c36313333ebcf4da6972626601de67
   - Id: Scripts
     Resources:
     - name: Start
       pathPrefix: Scripts
       guid: 773c28ad7fcd4c24caf072b55df6887f
+    - name: MainUI
+      pathPrefix: Scripts
+      guid: dc58f3bf77d36b243a933e23b0bf305f
+    - name: Map
+      pathPrefix: Scripts
+      guid: afb9a65219499d1498ed207ead2e448b
   - Id: Backgrounds/cdc047f6-0ba9-41c4-8b09-526b81b4b762
     Resources:
     - name: Space
       pathPrefix: Backgrounds/MainBackground
       guid: 15741e509a582954aaf5f855c5608d25
+    - name: Milky Way
+      pathPrefix: Backgrounds/MainBackground
+      guid: 57255a6344704e04f9118bf165a081c1
   - Id: Characters/57153a5a-7442-438c-8dc6-a739f01c6df2
     Resources:
     - name: Normal

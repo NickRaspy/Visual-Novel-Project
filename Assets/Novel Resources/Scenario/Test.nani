@@ -1,0 +1,11 @@
+# Test
+@back Space
+@char rect
+rect: Try UI!
+@startQuest questId:main_quest
+@completeTask questId:main_quest taskId:test_1
+@hide rect
+@goto MainUI
+
+
+@stop

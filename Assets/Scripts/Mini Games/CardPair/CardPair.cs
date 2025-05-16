@@ -1,17 +1,13 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace VNP.MiniGames.CardPair
 {
-    public class CardPair : MonoBehaviour, IMiniGame
+    public class CardPair : MiniGame
     {
-        public UnityAction OnGameFinish { get; set; }
-
         [Header("Settings")]
         [SerializeField] private Sprite cardBack;
         [SerializeField] private List<CardFront> cardFronts;
@@ -31,20 +27,20 @@ namespace VNP.MiniGames.CardPair
         [SerializeField] private Card originCard;
         [SerializeField] private GridLayoutGroup gridLayout;
 
-        private HashSet<Card> cards;
+        private HashSet<Card> cards = new();
 
         private Card firstComparingCard;
         private Card secondComparingCard;
 
         public bool CanClickOnCards { get; set; } = true;
 
-        public void FinishGame()
+        public override void FinishGame()
         {
-            StopGame();
             OnGameFinish();
+            base.FinishGame();
         }
 
-        public void StartGame(Difficulty difficulty)
+        public override void StartGame(Difficulty difficulty)
         {
             if (cardFronts.Count == 0)
             {
@@ -70,6 +66,7 @@ namespace VNP.MiniGames.CardPair
                 firstCard.Init(this, cardFront, cardBack);
 
                 Card secondCard = Instantiate(firstCard, transform);
+                secondCard.Init(this, cardFront, cardBack);
 
                 cards.Add(firstCard);
                 cards.Add(secondCard);
@@ -79,17 +76,21 @@ namespace VNP.MiniGames.CardPair
                 if(cardFrontBag.Count == 0) cardFrontBag = new(cardFronts);
             }
 
-            var shuffledCards = cards.OrderBy(x => UnityEngine.Random.value);
+            var shuffledCards = cards.OrderBy(x => Random.value);
 
             cards = new(shuffledCards);
 
-            foreach(var card in cards) card.transform.SetParent(gridLayout.transform);
+            foreach(var card in cards)
+            {
+                card.transform.SetParent(gridLayout.transform);
+                card.gameObject.SetActive(true);
+            }
         }
 
-        public void StopGame()
+        public override void StopGame()
         {
-            foreach(var card in cards) Destroy(card);
             cards.Clear();
+            Destroy(gameObject);
         }
 
         public void CompareCards(Card card)
@@ -110,8 +111,9 @@ namespace VNP.MiniGames.CardPair
                 cards.Remove(firstComparingCard);
                 cards.Remove(secondComparingCard);
 
-                firstComparingCard = null;
-                secondComparingCard = null;
+                ComparingCardClear();
+
+                if(cards.Count == 0) FinishGame();
             }
             else
             {
@@ -125,6 +127,14 @@ namespace VNP.MiniGames.CardPair
             yield return new WaitForSeconds(cardCooldown);
             firstComparingCard.ShowBack();
             secondComparingCard.ShowBack();
+
+            ComparingCardClear();
+        }
+
+        private void ComparingCardClear()
+        {
+            firstComparingCard = null;
+            secondComparingCard = null;
         }
     }
 }

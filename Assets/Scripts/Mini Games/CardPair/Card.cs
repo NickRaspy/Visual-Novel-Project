@@ -38,20 +38,19 @@ namespace VNP.MiniGames.CardPair
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            if(!cardPair.CanClickOnCards) return;
+            if(!cardPair.CanClickOnCards || isFront) return;
 
             ShowFront();
         }
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            if (outline == null || isFront) return;
+            if (outline == null || isFront || !cardPair.CanClickOnCards) return;
             outline.enabled = true;
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            if (outline == null || isFront) return;
             outline.enabled = false;
         }
 
@@ -63,7 +62,7 @@ namespace VNP.MiniGames.CardPair
                 .OnStart(() => cardPair.CanClickOnCards = false)
                 .Append(transform.DORotate(90f * Vector3.up, 0.5f))
                 .AppendCallback(() => cardImage.sprite = currentCardFront.frontView)
-                .Append(transform.DORotate(90f * Vector3.up, 0.5f))
+                .Append(transform.DORotate(0f * Vector3.up, 0.5f))
                 .OnComplete(() =>
                 {
                     isFront = true;
@@ -77,9 +76,9 @@ namespace VNP.MiniGames.CardPair
             Sequence sequence = DOTween.Sequence();
 
             sequence.SetAutoKill(true)
-                .Append(transform.DORotate(-90f * Vector3.up, 0.5f))
+                .Append(transform.DORotate(90f * Vector3.up, 0.5f))
                 .AppendCallback(() => cardImage.sprite = currentCardBack)
-                .Append(transform.DORotate(-90f * Vector3.up, 0.5f))
+                .Append(transform.DORotate(0f * Vector3.up, 0.5f))
                 .OnComplete(() =>
                 {
                     isFront = false;

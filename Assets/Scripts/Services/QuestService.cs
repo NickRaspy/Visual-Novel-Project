@@ -11,12 +11,13 @@ namespace VNP.Services
     [InitializeAtRuntime]
     public class QuestService : IEngineService, IStatefulService<GameStateMap>
     {
-        const string QUEST_PATH = "Quest List";
-
-        private Dictionary<string, Quest> quests = new();
+        const string QUEST_PATH = "QuestList";
+        public Dictionary<string, Quest> Quests { get; private set; } = new();
 
         //<id of Quest, all Quest's Tasks> for easy access
-        private Dictionary<string, List<Task>> allTasks = new();
+        public Dictionary<string, List<Task>> AllTasks { get; private set; } = new();
+
+        public bool IsLoaded { get; private set; } = false;
 
         public async UniTask InitializeServiceAsync()
         {
@@ -24,63 +25,109 @@ namespace VNP.Services
 
             if(load == null)
             {
-                Debug.LogError("There is no Quest List in Resources");
+                Debug.LogWarning("There is no QuestList in Resources!");
                 return;
             }
 
             if(load is QuestList questList)
             {
+                if(questList.Quests.Count == 0)
+                {
+                    Debug.LogError("EmpyList Error: Your QuestList is empty!");
+                    return;
+                }
+                
+                if(questList.Quests.Any(q => string.IsNullOrEmpty(q.id)))
+                {
+                    Debug.LogError("EmptyValue Error: One of your quests contains empty ID!");
+                    return;
+                }
+
+                if(questList.Quests.Any(q => q.progress.Count == 0))
+                {
+                    Debug.LogError("EmpyList Error: One of your quest's progress is empty!");
+                    return;
+                }
+
                 HashSet<Quest> loadedQuests = new(questList.Quests);
 
                 foreach (var loadedQuest in loadedQuests)
                 {
-                    quests.Add(loadedQuest.id, loadedQuest);
+                    Quests.Add(loadedQuest.id, loadedQuest);
 
-                    allTasks.Add(loadedQuest.id, new());
+                    AllTasks.Add(loadedQuest.id, new());
 
-                    loadedQuest.progress.ForEach(p => 
+                    foreach(var step in loadedQuest.progress)
                     {
-                        allTasks[loadedQuest.id].AddRange(p.tasks);
-                    });
+                        if(step.tasks.Count == 0)
+                        {
+                            Debug.LogError("EmptyList Error: Your QuestList contains empty steps!");
+                            Quests.Clear();
+                            return;
+                        }
+
+                        if(step.tasks.Any(t => string.IsNullOrEmpty(t.id)))
+                        {
+                            Debug.LogError("EmptyValue Error: One of your tasks contains empty ID!");
+                            Quests.Clear();
+                            return;
+                        }
+
+                        AllTasks[loadedQuest.id].AddRange(step.tasks);
+                    }
                 }
 
+                IsLoaded = true;
             }
-            else
-            {
-                Debug.LogError("Quest List in Resources isn't QuestList asset");
-            }
+            else Debug.LogError("NonMatchingObjects Error: QuestList in Resources isn't QuestList asset!");
         }
 
-        public void StartQuest(string questID) => quests[questID].Start();
+        public void StartQuest(string questID)
+        {
+            if (!Quests.ContainsKey(questID))
+            {
+                Debug.LogError("NonExistingObject Error: You are trying to start non-existing quest!");
+                return;
+            }
 
-        public void CheckStep(string questID) => quests[questID].CheckStep();
+            Quests[questID].Start();
+        }
+
+        public void CheckStep(string questID) => Quests[questID].CheckStep();
 
         public void CompleteTask(string questID, string taskID)
         {
-            Task task = allTasks[questID].First(t => t.id == taskID);
+
+            Task task = AllTasks[questID].First(t => t.id == taskID);
+
+            if(task == null)
+            {
+                Debug.LogError("NonExistingObject Error: You are trying to complete non-existing task!");
+                return;
+            }
 
             if (task.status == QuestStatus.Active)
             {
-                allTasks[questID].First(t => t.id == taskID).status = QuestStatus.Completed;
+                task.status = QuestStatus.Completed;
 
                 CheckStep(questID);
             }
             else
             {
-                Debug.LogError("You are trying to complete inactive, completed of failed task");
+                Debug.LogError("FailedConditions Error: You are trying to complete inactive, completed of failed task!");
             }
 
         }
 
         public void ResetService()
         {
-            foreach(var quest in quests.Values)
+            foreach(var quest in Quests.Values)
                 quest.status = QuestStatus.Inactive;
         }
 
         public void DestroyService()
         {
-            quests.Clear();
+            Quests.Clear();
         }
 
         public UniTask LoadServiceStateAsync(GameStateMap state)
@@ -91,10 +138,10 @@ namespace VNP.Services
 
             foreach(var quest in data)
             {
-                quests[quest.id].status = quest.status;
-                quests[quest.id].progressCount = quest.currentProgress;
+                Quests[quest.id].status = quest.status;
+                Quests[quest.id].progressCount = quest.currentProgress;
 
-                quests[quest.id].progress.ForEach(p =>
+                Quests[quest.id].progress.ForEach(p =>
                 {
                     p.tasks.ForEach(t => t.status = quest.tasks.First(x => x.id == t.id).status);
                 });
@@ -107,7 +154,7 @@ namespace VNP.Services
         {
             List<QuestState> questStates = new();
 
-            foreach (var quest in quests.Values)
+            foreach (var quest in Quests.Values)
             {
                 QuestState questState = new()
                 {
@@ -116,7 +163,7 @@ namespace VNP.Services
                     currentProgress = quest.progressCount,
                     tasks = new()
                 };
-                allTasks[quest.id].ForEach(t =>
+                AllTasks[quest.id].ForEach(t =>
                 {
                     questState.tasks.Add(new()
                     {
