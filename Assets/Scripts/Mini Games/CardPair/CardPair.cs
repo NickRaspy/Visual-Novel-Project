@@ -10,22 +10,33 @@ namespace VNP.MiniGames.CardPair
     {
         [Header("Settings")]
         [SerializeField] private Sprite cardBack;
+
         [SerializeField] private List<CardFront> cardFronts;
+
         [Space]
         [Tooltip("Amount will be doubled")]
         [SerializeField] private int easyCardPairAmount;
+
         [Space]
         [Tooltip("Amount will be doubled")]
         [SerializeField] private int mediumCardPairAmount;
+
         [Space]
         [Tooltip("Amount will be doubled")]
         [SerializeField] private int hardCardPairAmount;
+
         [Space]
         [SerializeField] private float cardCooldown = 1f;
 
         [Header("Insides")]
         [SerializeField] private Card originCard;
+
         [SerializeField] private GridLayoutGroup gridLayout;
+
+        [Header("Audio")]
+        [Tooltip("Requires AudioSource (if this list will have tracks but AudioSource is absent - it will be created automaticly)")]
+        [SerializeField] private List<AudioClip> cardSFXList;
+        private AudioSource cardAudioSource;
 
         private HashSet<Card> cards = new();
 
@@ -33,6 +44,16 @@ namespace VNP.MiniGames.CardPair
         private Card secondComparingCard;
 
         public bool CanClickOnCards { get; set; } = true;
+
+        private void Start()
+        {
+            if(cardAudioSource == null && cardSFXList.Count > 0)
+            {
+                cardAudioSource = gameObject.AddComponent<AudioSource>();
+                cardAudioSource.loop = false;
+                cardAudioSource.playOnAwake = false;
+            }
+        }
 
         public override void FinishGame()
         {
@@ -58,11 +79,11 @@ namespace VNP.MiniGames.CardPair
 
             List<CardFront> cardFrontBag = new(cardFronts);
 
-            for(int i = 0; i < currentCardAmount; i++)
+            for (int i = 0; i < currentCardAmount; i++)
             {
                 Card firstCard = Instantiate(originCard, transform);
 
-                CardFront cardFront = cardFrontBag[UnityEngine.Random.Range(0, cardFrontBag.Count)];
+                CardFront cardFront = cardFrontBag[Random.Range(0, cardFrontBag.Count)];
                 firstCard.Init(this, cardFront, cardBack);
 
                 Card secondCard = Instantiate(firstCard, transform);
@@ -73,14 +94,14 @@ namespace VNP.MiniGames.CardPair
 
                 cardFrontBag.Remove(cardFront);
 
-                if(cardFrontBag.Count == 0) cardFrontBag = new(cardFronts);
+                if (cardFrontBag.Count == 0) cardFrontBag = new(cardFronts);
             }
 
             var shuffledCards = cards.OrderBy(x => Random.value);
 
             cards = new(shuffledCards);
 
-            foreach(var card in cards)
+            foreach (var card in cards)
             {
                 card.transform.SetParent(gridLayout.transform);
                 card.gameObject.SetActive(true);
@@ -95,7 +116,7 @@ namespace VNP.MiniGames.CardPair
 
         public void CompareCards(Card card)
         {
-            if(firstComparingCard == null)
+            if (firstComparingCard == null)
             {
                 firstComparingCard = card;
                 return;
@@ -103,17 +124,17 @@ namespace VNP.MiniGames.CardPair
 
             secondComparingCard = card;
 
-            if(firstComparingCard.GetCardFrontName() == secondComparingCard.GetCardFrontName())
+            if (firstComparingCard.GetCardFrontName() == secondComparingCard.GetCardFrontName())
             {
                 firstComparingCard.enabled = false;
-                secondComparingCard.enabled= false;
+                secondComparingCard.enabled = false;
 
                 cards.Remove(firstComparingCard);
                 cards.Remove(secondComparingCard);
 
                 ComparingCardClear();
 
-                if(cards.Count == 0) FinishGame();
+                if (cards.Count == 0) FinishGame();
             }
             else
             {
@@ -135,6 +156,11 @@ namespace VNP.MiniGames.CardPair
         {
             firstComparingCard = null;
             secondComparingCard = null;
+        }
+
+        public void PlaySound()
+        {
+            cardAudioSource.PlayOneShot(cardSFXList[Random.Range(0, cardSFXList.Count)]);
         }
     }
 }

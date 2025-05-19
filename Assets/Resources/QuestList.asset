@@ -17,11 +17,16 @@ MonoBehaviour:
     title: The Main Quest
     progress:
     - tasks:
-      - id: test_1
-        title: Test 1
+      - id: go_to_y2
+        title: Go to the Y2-8
     - tasks:
-      - id: test_2
-        title: Test 2
-      - id: test_3
-        title: Test 3
-    progressCount: 0
+      - id: use_tablet
+        title: Use tablet
+    - tasks:
+      - id: go_to_l4
+        title: Go to the L4-6
+    - tasks:
+      - id: take_key_wisdom
+        title: Take the Key of Wisdom
+      - id: visit_ciri
+        title: Visit Ciri

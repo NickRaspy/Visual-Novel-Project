@@ -1,0 +1,25 @@
+# L4_6
+@back Space_3
+@stopBgm
+@bgm Space_3
+@if main_quest_progress==3
+You reached the L4-6.
+You see something in distance.
+@spawn WisdomKey
+Is that the Key of Wisdom you must bring?
+Should I take it?
+@despawn WisdomKey
+@completeTask questId:main_quest taskId:go_to_l4
+@endif
+@showUI MainUI
+@hidePrinter 
+@if !hasWisdomKey
+@choice  button:Buttons/WisdomKeyButton pos:0,0 handler:ButtonArea
+@endif
+@stop
+
+# Take_WisdomKey
+You took the Key of Wisdom
+@completeTask questId:main_quest taskId:take_key_wisdom
+@set hasWisdomkey=true
+@goto .L4_6

@@ -1,7 +1,7 @@
-using UnityEngine;
-using System.Collections.Generic;
-using VNP.MiniGames;
 using System;
+using System.Collections.Generic;
+using UnityEngine;
+using VNP.MiniGames;
 
 namespace VNP.Scriptables
 {

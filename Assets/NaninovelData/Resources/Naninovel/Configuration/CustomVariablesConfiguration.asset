@@ -15,3 +15,7 @@ MonoBehaviour:
   PredefinedVariables:
   - name: playerName
     value: '"Player"'
+  - name: hasWisdomKey
+    value: false
+  - name: hadFinalDialog
+    value: false

@@ -1,7 +1,7 @@
+using Naninovel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine.Events;
 
 namespace VNP.Data
 {
@@ -11,6 +11,7 @@ namespace VNP.Data
         public Quest quest;
         public QuestStatus status = QuestStatus.Inactive;
         public int currentProgress = 0;
+
         public void SetStatus(QuestStatus newStatus)
         {
             status = newStatus;
@@ -28,14 +29,25 @@ namespace VNP.Data
 
         public List<Step> progress;
 
-        [NonSerialized]
-        public int progressCount = 0;
+        private int progressCount = 0;
 
-        public Step GetCurrentProgress() => progress[progressCount]; 
+        public int ProgressCount
+        {
+            get => progressCount;
+            set
+            {
+                progressCount = value;
+                UpdateQuestProgress();
+            }
+        }
+
+        public Step GetCurrentProgress() => progress[progressCount];
 
         public void Start()
         {
             status = QuestStatus.Active;
+
+            UpdateQuestProgress();
 
             progress[progressCount].StartTasks();
         }
@@ -53,15 +65,18 @@ namespace VNP.Data
 
         public void NextStep()
         {
-            progressCount++;
+            ProgressCount++;
 
             progress[progressCount].StartTasks();
 
             if (progressCount == progress.Count) status = QuestStatus.Completed;
         }
+
+        private void UpdateQuestProgress()
+        {
+            Engine.GetService<ICustomVariableManager>().SetVariableValue($"{id}_progress", (progressCount + 1).ToString());
+        }
     }
-
-
 
     [Serializable]
     public class Task
@@ -85,6 +100,7 @@ namespace VNP.Data
         public bool IsFailed() => tasks.Any(t => t.status == QuestStatus.Failed);
     }
 
+    [Serializable]
     public enum QuestStatus
     {
         Inactive,

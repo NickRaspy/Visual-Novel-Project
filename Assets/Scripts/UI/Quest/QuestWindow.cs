@@ -29,7 +29,7 @@ namespace VNP.UI.Quests
 
         private void UpdateQuests()
         {
-            foreach(var questBlock  in mainQuestBlocks.Values.Where(q => q.AssignedQuest.status != Data.QuestStatus.Inactive))
+            foreach (var questBlock in mainQuestBlocks.Values.Where(q => q.AssignedQuest.status != Data.QuestStatus.Inactive))
                 questBlock.Activate();
         }
 

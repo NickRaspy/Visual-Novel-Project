@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using VNP.Data;
 
 namespace VNP.UI.Quests
@@ -27,6 +26,7 @@ namespace VNP.UI.Quests
                 case QuestStatus.Completed:
                     completionMark.SetActive(true);
                     break;
+
                 case QuestStatus.Failed:
                     failedMark.SetActive(true);
                     break;

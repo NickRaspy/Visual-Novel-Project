@@ -1,0 +1,31 @@
+# Start
+@back Space_1
+You were awakened somewhere in space.
+You don't know how you got there.
+@char rect
+A rectangle comes to you.
+Hello! Are you okay?
+@choice Yes goto:.Choice1_Yes
+@choice No goto:.Choice1_No
+@stop
+
+# Choice1_Yes
+That's great!
+@goto .Choice1_After
+
+# Choice1_No
+Uh...
+@goto .Choice1_After
+
+# Choice1_After
+Anyway... My name is Rect, The Rectangular!
+rect: What's your's name?
+@input playerName summary:"What's your name?"
+@stop
+rect: Nice to meet you, {playerName}!
+rect: You know... [wait i1] since you here...
+rect: I think you can help me. [wait i0.3] Go to Y2-8 and find Ciri!
+To go to another location click on the map button above.
+@startQuest questId:main_quest
+@hide rect
+@goto X2_6

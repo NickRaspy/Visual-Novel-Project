@@ -1,8 +1,8 @@
-using UnityEngine;
 using System.Collections.Generic;
-using TMPro;
-using VNP.Data;
 using System.Linq;
+using TMPro;
+using UnityEngine;
+using VNP.Data;
 
 namespace VNP.UI.Quests
 {
@@ -37,7 +37,7 @@ namespace VNP.UI.Quests
 
         private void UpdateTaskBlocks()
         {
-            foreach(var task in taskBlocks.Values.Where(t => t.AssignedTask.status != QuestStatus.Inactive)) task.Activate();
+            foreach (var task in taskBlocks.Values.Where(t => t.AssignedTask.status != QuestStatus.Inactive)) task.Activate();
         }
     }
 }

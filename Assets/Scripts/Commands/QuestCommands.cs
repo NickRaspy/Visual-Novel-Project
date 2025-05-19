@@ -9,9 +9,10 @@ namespace VNP.Commands
     {
         [ParameterAlias("questId"), RequiredParameter]
         public StringParameter questId;
+
         public override UniTask ExecuteAsync(AsyncToken asyncToken = default)
         {
-            if(!Engine.GetService<QuestService>().IsLoaded)
+            if (!Engine.GetService<QuestService>().IsLoaded)
             {
                 Debug.LogError("ServiceLoad Error: there is no quest loaded!");
                 return UniTask.CompletedTask;
@@ -27,6 +28,28 @@ namespace VNP.Commands
     {
         [ParameterAlias("questId"), RequiredParameter]
         public StringParameter questId;
+
+        [ParameterAlias("taskId"), RequiredParameter]
+        public StringParameter taskId;
+
+        public override UniTask ExecuteAsync(AsyncToken asyncToken = default)
+        {
+            if (!Engine.GetService<QuestService>().IsLoaded)
+            {
+                Debug.LogError("ServiceLoad Error: there is no quest loaded!");
+                return UniTask.CompletedTask;
+            }
+
+            Engine.GetService<QuestService>().CompleteTask(questId, taskId);
+            return UniTask.CompletedTask;
+        }
+    }
+
+    public class TaskFail : Command
+    {
+        [ParameterAlias("questId"), RequiredParameter]
+        public StringParameter questId;
+
         [ParameterAlias("taskId"), RequiredParameter]
         public StringParameter taskId;
         public override UniTask ExecuteAsync(AsyncToken asyncToken = default)

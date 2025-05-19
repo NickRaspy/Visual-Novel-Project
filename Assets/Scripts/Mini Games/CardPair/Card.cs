@@ -31,14 +31,14 @@ namespace VNP.MiniGames.CardPair
 
             cardImage.sprite = cardBack;
 
-            if(TryGetComponent(out Outline outLine)) outline = outLine;
+            if (TryGetComponent(out Outline outLine)) outline = outLine;
         }
 
         public string GetCardFrontName() => currentCardFront.name;
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            if(!cardPair.CanClickOnCards || isFront) return;
+            if (!cardPair.CanClickOnCards || isFront) return;
 
             ShowFront();
         }
@@ -59,7 +59,11 @@ namespace VNP.MiniGames.CardPair
             Sequence sequence = DOTween.Sequence();
 
             sequence.SetAutoKill(true)
-                .OnStart(() => cardPair.CanClickOnCards = false)
+                .OnStart(() => 
+                {
+                    cardPair.CanClickOnCards = false;
+                    cardPair.PlaySound();
+                })
                 .Append(transform.DORotate(90f * Vector3.up, 0.5f))
                 .AppendCallback(() => cardImage.sprite = currentCardFront.frontView)
                 .Append(transform.DORotate(0f * Vector3.up, 0.5f))

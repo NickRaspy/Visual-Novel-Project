@@ -1,0 +1,132 @@
+# Y2_8
+@back Space_2
+@stopBgm 
+@bgm Space_2
+# Y2_8_AfterDialogue
+@hidePrinter 
+@if "main_quest_progress == 1"
+@goto .Y2_8_Dialogue_1
+@endif
+@if "main_quest_progress != 4"
+@choice  button:Buttons/Characters/CiriButton pos:500,0 handler:ButtonArea goto:.Y2_8_Dialogue_2
+@if main_quest_progress==2
+@choice  button:Buttons/TabletButton pos:0,0 handler:ButtonArea goto:.Y2_8_Monologue_Tablet
+@endif
+@else
+    Hm...
+    She isn't here. Where she went?
+@hidePrinter 
+@endif
+@showUI MainUI
+@stop
+
+# Y2_8_Dialogue_1
+@char ciri
+ciri: A newcomer! And... [wait i0.3] unusual one...
+ciri: Anyway my name is Ciri. What's yours?
+# Y2_8_Dialogue_1_Prechoice_1
+@char ciri.Normal
+@choice "My name is {playerName}."
+@choice "I'll not tell you." goto:.Y2_8_Dialogue_1_Rude_Choice
+@stop
+ciri: Nice to meet you, {playerName}!
+ciri: The only one who would know that I'm here is that stupid square...
+@char ciri.Angry
+ciri: Just to know: this imbecil is the only friend I have here and sometimes I hade his point of view!
+ciri: He keeps himself in his own comfort zone and doesn't want to try anything new!
+ciri: This galaxy is full of things! Infinite choices!
+@char ciri.Worried
+ciri: Oh...[wait i0.3] sorry...[wait i0.3] I got carried away about him...
+ciri: But do you agree that the whole galaxy...[wait i0.3] no...[wait i0.3] universe is full of interesting things to explore?
+# Y2_8_Dialogue_1_Prechoice_2
+@choice Yes goto:.Y2_8_Dialogue_1_Choice_Yes
+@choice No goto:.Y2_8_Dialogue_1_Choice_No
+@stop
+# Y2_8_Dialogue_1_Afterchoice_2
+@char ciri.Normal
+ciri: Anyway. I guess that 4-sided idiot sent you because of Key of Wisdom, right?
+# Y2_8_Dialogue_1_Prechoice_3
+@choice "...Key of Wisdom?" goto:.Y2_8_Dialogue_1_Choice_Dunno
+@choice "...I guess"
+@stop
+# Y2_8_Dialogue_1_Afterchoice_3
+ciri: Okay. I have a tablet. But I'll give it to you only if you try a game I found on one planet from A43-1!
+# Y2_8_Dialogue_1_GameExplain
+ciri: It's called "Card Pair". Flip 2 cards and if both of them are the same - they stay face up. Else return them face down.
+ciri: Are you ready? 
+@choice "Yep. Let's go!"
+@choice "Can you repeat?" goto:.Y2_8_Dialogue_1_GameExplain
+@stop
+ciri: Great! Let me shuffle...[wait i1] done!
+ciri: Here we go! 
+@hidePrinter 
+@startMiniGame miniGameId:card_pair difficulty:1
+ciri: You've made it! Congrats!
+ciri: Here's the tablet.
+You got tablet.
+@completeTask questId:main_quest taskId:go_to_y2
+@hide ciri
+@goto .Y2_8_AfterDialogue
+
+# Y2_8_Dialogue_1_Rude_Choice
+@char ciri.Angry
+ciri: That's rude! I told you my name, you must tell yours!
+@goto .Y2_8_Dialogue_1_Prechoice_1
+
+# Y2_8_Dialogue_1_Choice_Yes
+@char ciri.Blush
+ciri: I knew we would understand each other!
+@goto .Y2_8_Dialogue_1_Afterchoice_2
+# Y2_8_Dialogue_1_Choice_No
+ciri: Well...[wait i0.3] I think you just don't understand it yet.
+ciri: But it's okay! It will get you eventually.
+@goto .Y2_8_Dialogue_1_Afterchoice_2
+
+# Y2_8_Dialogue_1_Choice_Dunno
+@char ciri.Angry
+ciri: BUT OF COURSE! HE DIDN'T EVEN TELL YOU!
+@char ciri.Normal
+ciri: Sorry...[wait i0.3] he is getting me on nerves sometimes.
+ciri: Listen. The Key of Wisdom is the thing that will answer to any questions you have.
+@char ciri.Blush
+ciri: With that maybe i'll get some information about knew places and thing to know...
+@char ciri.Normal
+@hide ciri
+@goto .Y2_8_Dialogue_1_Afterchoice_3
+
+# Y2_8_Dialogue_2
+@char ciri
+ciri: You have some problem with tablet?
+# Y2_8_Dialogue_2_Prechoice
+@choice "Yeah... can you help me?" goto:.Y2_8_Dialogue_2_Choice_1
+@choice "What's Key of Wisdom, again?" goto:.Y2_8_Dialogue_2_Choice_2
+@choice "You don't have any friends?" goto:.Y2_8_Dialogue_2_Choice_3
+@choice Nevermind.
+@stop
+@hide ciri
+@goto .Y2_8_AfterDialogue
+
+# Y2_8_Dialogue_2_Choice_1
+@if main_quest_progress==3
+(I think I already know the answer...)
+@else
+ciri: Just tap on it and you will get it![wait i0.3] Simple as is!
+@endif
+@goto .Y2_8_Dialogue_2_Prechoice
+
+# Y2_8_Dialogue_2_Choice_2
+ciri: The Key of Wisdom is the thing that will answer to any questions you have.
+ciri: You don't have any memory issues...[wait i0.3] right?
+@goto .Y2_8_Dialogue_2_Prechoice
+
+# Y2_8_Dialogue_2_Choice_3
+@char ciri.Worried
+ciri: Well...[wait i0.3] when everyonee see me as abnormal big circle and sometimes treat me like a god...[wait i0.3] it's not that simple.
+@char ciri.Normal
+@goto .Y2_8_Dialogue_2_Prechoice
+
+# Y2_8_Monologue_Tablet
+You decided to tap on tablet.
+It showed you the coordinates of L4-6.
+@completeTask questId:main_quest taskId:use_tablet
+@goto .Y2_8

@@ -1,17 +1,17 @@
-using UnityEngine;
 using Naninovel;
-using VNP.MiniGames;
 using System.Collections.Generic;
-using VNP.Scriptables;
 using System.Linq;
+using UnityEngine;
 using UnityEngine.Events;
+using VNP.MiniGames;
+using VNP.Scriptables;
 
 namespace VNP.Services
 {
     [InitializeAtRuntime]
     public class MiniGameService : IEngineService
     {
-        const string MINI_GAMES_PATH = "MiniGameList";
+        private const string MINI_GAMES_PATH = "MiniGameList";
 
         private MiniGame currentMiniGame;
 
@@ -27,7 +27,7 @@ namespace VNP.Services
         {
             var load = await Resources.LoadAsync(MINI_GAMES_PATH);
 
-            if(load == null)
+            if (load == null)
             {
                 Debug.LogWarning("There is no MiniGamesList in Resources folder");
                 return;
@@ -35,12 +35,12 @@ namespace VNP.Services
 
             if (load is MiniGameList miniGameList)
             {
-                if(miniGameList.miniGamesList.Count == 0)
+                if (miniGameList.miniGamesList.Count == 0)
                 {
                     Debug.LogError("EmptyList Error: Your MiniGamesList is empty!");
                 }
 
-                if(miniGameList.miniGamesList.Any(mg => string.IsNullOrEmpty(mg.id) || mg.miniGame == null))
+                if (miniGameList.miniGamesList.Any(mg => string.IsNullOrEmpty(mg.id) || mg.miniGame == null))
                 {
                     Debug.LogError("EmptyValue Error: One of your minigames has no id or MiniGame object!");
                     return;
@@ -55,7 +55,6 @@ namespace VNP.Services
 
                 IsLoaded = true;
             }
-
             else Debug.LogError("NonMatchingObjects Error: MiniGamesList in Resources isn't MiniGamesList asset!");
         }
 
@@ -70,7 +69,7 @@ namespace VNP.Services
 
         public void FinishGame()
         {
-            if(currentMiniGame != null) currentMiniGame.OnGameFinish -= FinishGame;
+            if (currentMiniGame != null) currentMiniGame.OnGameFinish -= FinishGame;
 
             OnFinish();
         }
@@ -85,7 +84,7 @@ namespace VNP.Services
 
         private void StopGame()
         {
-            if(currentMiniGame == null) return;
+            if (currentMiniGame == null) return;
 
             currentMiniGame.OnGameFinish -= FinishGame;
             currentMiniGame.StopGame();

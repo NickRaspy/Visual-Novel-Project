@@ -88,6 +88,9 @@ MonoBehaviour:
     - name: Blur
       pathPrefix: Spawn
       guid: e466d9326b30a4b49a3dad428b4d9968
+    - name: WisdomKey
+      pathPrefix: Spawn
+      guid: d2973cea91b098548b2420c18de4c36a
   - Id: UI
     Resources:
     - name: ClickThroughPanel
@@ -151,19 +154,34 @@ MonoBehaviour:
     Resources:
     - name: Start
       pathPrefix: Scripts
-      guid: 773c28ad7fcd4c24caf072b55df6887f
-    - name: MainUI
+      guid: 094409048197e074dae48faeea05e091
+    - name: X2_6
       pathPrefix: Scripts
-      guid: dc58f3bf77d36b243a933e23b0bf305f
+      guid: fb3024af654858d4c8d486f2b46a9032
+    - name: Y2_8
+      pathPrefix: Scripts
+      guid: 353c9c783e289554faeeba325641ecfe
+    - name: L4_6
+      pathPrefix: Scripts
+      guid: 6b4da2c2fbcf1eb4b963591bbb381be1
     - name: Map
       pathPrefix: Scripts
       guid: afb9a65219499d1498ed207ead2e448b
+    - name: Title
+      pathPrefix: Scripts
+      guid: 53231abf57fe05f46a43b29ddef52ef8
   - Id: Backgrounds/cdc047f6-0ba9-41c4-8b09-526b81b4b762
     Resources:
-    - name: Space
+    - name: Space_1
       pathPrefix: Backgrounds/MainBackground
       guid: 15741e509a582954aaf5f855c5608d25
-    - name: Milky Way
+    - name: Space_2
+      pathPrefix: Backgrounds/MainBackground
+      guid: a2313aa30416936409d1557b0799a40b
+    - name: Space_3
+      pathPrefix: Backgrounds/MainBackground
+      guid: 20f4208f893dd2b4185f5b571e8fcbff
+    - name: Milky_Way
       pathPrefix: Backgrounds/MainBackground
       guid: 57255a6344704e04f9118bf165a081c1
   - Id: Characters/57153a5a-7442-438c-8dc6-a739f01c6df2
@@ -177,3 +195,31 @@ MonoBehaviour:
     - name: Blushed
       pathPrefix: Characters/rect
       guid: 12b7c21dd6cab204cb9301b6d20cf67c
+    - name: Worried
+      pathPrefix: Characters/rect
+      guid: d8c88883c21e40744b3fc93869486da3
+  - Id: Characters/0b8c193d-4d61-425a-9f11-2ed0ceddedc0
+    Resources:
+    - name: Normal
+      pathPrefix: Characters/ciri
+      guid: cb56e41162951bc4195550ee7c355b45
+    - name: Angry
+      pathPrefix: Characters/ciri
+      guid: 3800ae4587ef4dc46911aaaf4782c808
+    - name: Blush
+      pathPrefix: Characters/ciri
+      guid: 2e291ec98e97f724fa00372261c3c4d5
+    - name: Worried
+      pathPrefix: Characters/ciri
+      guid: 73047b1f829b19c469ae26da4f9825ed
+  - Id: Audio
+    Resources:
+    - name: Space_1
+      pathPrefix: Audio
+      guid: 8e6aac80af974494e99be6f31beb0575
+    - name: Space_2
+      pathPrefix: Audio
+      guid: c203ab9305525e24d92ac5a94d215bd6
+    - name: Space_3
+      pathPrefix: Audio
+      guid: e1313bc2bf40814448a6c336d2aced17

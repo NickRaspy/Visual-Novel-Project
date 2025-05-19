@@ -13,11 +13,15 @@ namespace VNP.MiniGames
 
         public abstract void StopGame();
     }
+
     public interface IMiniGame
     {
         UnityAction OnGameFinish { get; set; }
+
         void StartGame(Difficulty difficulty);
+
         void StopGame();
+
         void FinishGame();
     }
 

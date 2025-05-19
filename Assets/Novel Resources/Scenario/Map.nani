@@ -1,4 +1,12 @@
-
 @hideUI MainUI
-@back "Milky Way"
+@hide ButtonArea
+@back Milky_Way
+@if main_quest_progress>=1
+@choice X2-6 button:Buttons/MapButton pos:-300,200 handler:ButtonArea goto:X2_6
+@choice Y2-8 button:Buttons/MapButton pos:400,100 handler:ButtonArea goto:Y2_8
+@if main_quest_progress>=3
+@choice L4-6 button:Buttons/MapButton pos:200,-300 handler:ButtonArea goto:L4_6
+@endif
+@endif
+
 @stop
