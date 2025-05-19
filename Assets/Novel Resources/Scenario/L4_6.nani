@@ -1,13 +1,19 @@
 # L4_6
 @back Space_3
-@stopBgm
+@stopBgm 
 @bgm Space_3
+# L4_6_AfterDialogue
+@if hasWisdomKey
+    Something tells you that there is no need to be here.
+    @hidePrinter
+    @goto Map
+@endif
 @if main_quest_progress==3
-You reached the L4-6.
-You see something in distance.
+You have reached L4-6.
+You see something in the distance.
 @spawn WisdomKey
 Is that the Key of Wisdom you must bring?
-Should I take it?
+Should you take it?
 @despawn WisdomKey
 @completeTask questId:main_quest taskId:go_to_l4
 @endif
@@ -19,7 +25,7 @@ Should I take it?
 @stop
 
 # Take_WisdomKey
-You took the Key of Wisdom
+You have taken the Key of Wisdom.
 @completeTask questId:main_quest taskId:take_key_wisdom
-@set hasWisdomkey=true
-@goto .L4_6
+@set hasWisdomKey=true
+@goto .L4_6_AfterDialogue

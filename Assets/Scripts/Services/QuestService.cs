@@ -167,7 +167,10 @@ namespace VNP.Services
         public void ResetService()
         {
             foreach (var quest in Quests.Values)
+            {
                 quest.status = QuestStatus.Inactive;
+                quest.ProgressCount = 0;
+            }
 
             foreach (var tasks in AllTasks.Values)
                 foreach (var task in tasks)

@@ -2,7 +2,7 @@
 @back Space_1
 You were awakened somewhere in space.
 You don't know how you got there.
-@char rect
+@char rect.Normal
 A rectangle comes to you.
 Hello! Are you okay?
 @choice Yes goto:.Choice1_Yes

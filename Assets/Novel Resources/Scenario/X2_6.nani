@@ -1,6 +1,6 @@
 # X2_6
 @back Space_1
-@stopBgm
+@stopBgm 
 @bgm Space_1
 # X2_6_AfterDialogue
 @hidePrinter 
@@ -16,7 +16,7 @@
 # X2_6_Dialogue_1
 @hideUI MainUI
 @char rect
-rect: M? [wait i1] Weren't you suppose to go to the Y2-8?
+rect: M? [wait i1] Weren't you supposed to go to Y2-8?
 # X2_6_Dialogue_1_Prechoice
 @choice "Where am I?" goto:.X2_6_Dialogue_1_Choice_1
 @choice "Where is Y2-8?" goto:.X2_6_Dialogue_1_Choice_2
@@ -30,11 +30,11 @@ rect: M? [wait i1] Weren't you suppose to go to the Y2-8?
 rect: You are on X2-6 right now.
 @goto .X2_6_Dialogue_1_Prechoice
 # X2_6_Dialogue_1_Choice_2
-rect: Somewhere far. You will find it eventually.
+rect: Somewhere far away. You'll find it eventually.
 @goto .X2_6_Dialogue_1_Prechoice
 # X2_6_Dialogue_1_Choice_3
 rect: I'm Rect, the Rectangular!
-rect: ...don't you have memory issues?
+rect: ...Don't you have memory issues?
 @goto .X2_6_Dialogue_1_Prechoice
 
 # X2_6_Dialogue_2
@@ -44,13 +44,13 @@ rect: ...don't you have memory issues?
 @if hadFinalDialog
 @goto .X2_6_Dialogue_Final_Choice
 @endif
-rect: ...and you actually told him about Key of Wisdom...
-ciri: Why wouldn't I? Should he know about it?
-rect: Because he could use it for yourself!
+rect: ...and you actually told him about the Key of Wisdom...
+ciri: Why wouldn't I? Shouldn't he know about it?
+rect: Because he could use it for himself!
 ciri: Relax, he doesn't know how to u-
 ...
 ciri: Oh, hi {playerName}!
-rect: Did you bring Key of Wisdom?
+rect: Did you bring the Key of Wisdom?
 rect: If yes... give it to me, please!
 @char ciri.Angry
 ciri: WHAT?!
@@ -58,15 +58,15 @@ ciri: Don't give it to him! You should give it to me!
 ciri: This bounded creature doesn't deserve any wisdom! Why would he even need it?
 @char rect.Angry
 rect: Excuse me? "Bounded creature"?!
-rect: Your sense of freedom made you greedy!
-ciri: Grh...
+rect: Your sense of freedom has made you greedy!
+ciri: Grr...
 (Both) GIVE IT TO ME!!!
 # X2_6_Dialogue_Final_Choice
 @if hasWisdomKey
 @choice "(Give it to Rect)" goto:.X2_6_Dialogue_2_Choice_Rect
 @choice "(Give it to Ciri)" goto:.X2_6_Dialogue_2_Choice_Ciri
 @endif
-@choice "Both of you doesn't deserve it!" goto:.X2_6_Dialogue_2_Choice_None
+@choice "Neither of you deserves it!" goto:.X2_6_Dialogue_2_Choice_None
 @choice "Give me a moment..." goto:.X2_6_Dialogue_2_Choice_Wait
 @set hadFinalDialog=true
 @stop
@@ -74,18 +74,18 @@ ciri: Grh...
 # X2_6_Dialogue_2_Choice_Rect
 @char rect.Blushed
 rect: Wait, seriously?
-rect: Can't believe I have the Key...
+rect: I can't believe I have the Key...
 @char ciri.Angry
 ciri: Why...
 ciri: You didn't understand what I said...
-ciri: Screw it! I'll find everything I wanted by myself!
-ciri: Be a nice friend to that closed in understanding the world mess!
+ciri: Forget it! I'll find everything I want by myself!
+ciri: Be a nice friend to that closed-off mess trying to understand the world!
 @goto .Finale
 # X2_6_Dialogue_2_Choice_Ciri
 @char ciri.Blush
 ciri: I knew it, I knew it!
 ciri: Thank you so much!
-ciri: Let's together explore the universe and find some new things!
+ciri: Let's explore the universe together and find new things!
 @char rect.Angry
 rect: Dude...[wait i0.3] why...
 rect: I was the one who gave you direction...
@@ -96,19 +96,19 @@ rect: I thought you could be my friend...
 rect: Huh?
 ciri: What?
 rect: Are you kidding me?
-rect: I told you Ciri! We shouldn't tell him what was that!
+rect: I told you, Ciri! We shouldn't have told him what that was!
 ciri: Dang it...[wait i0.3] you were right...
 @char rect.Normal
 @char ciri.Normal
-ciri: You know... have it or not - doesn't matter.
+ciri: You know... having it or not - it doesn't matter.
 ciri: I think we don't need it. Rect, we should get what we want only by our actions and will.
-ciri: This item is a simple way, yet can be boring.
-rect: You are right, Ciri. Maybe I shouldn't be that restrained even with 4 of my sides.
+ciri: This item is a simple way, but it can be boring.
+rect: You're right, Ciri. Maybe I shouldn't be so restrained, even with my four sides.
 rect: Let's find our way together.
-rect: And {playerName}. Use it to find the way home.
+rect: And {playerName}. Use it to find your way home.
 @goto .Finale
 # X2_6_Dialogue_2_Choice_Wait
-ciri: Well hurry up!
+ciri: Well, hurry up!
 rect: And don't forget to give it to me!
 @hideChars
 @goto .X2_6_AfterDialogue
