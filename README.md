@@ -1,7 +1,9 @@
 <h1>Visual Novel Project</h1>
 Проект виз. новеллы на Unity с использованием Naninovel.
 Проект полностью на англ. языке и был сделан в течении недели, примерно за 36-40 часов.
-Видео: https://youtu.be/RufvEeXUEts
+
+[Видео](https://youtu.be/RufvEeXUEts)
+[Скачать](https://github.com/NickRaspy/Visual-Novel-Project/releases/download/Build/VNP.zip/)
 
 Реализованы:
 <ul>
