@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Naninovel-Spawn
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Naninovel-Spawn
+  m_GUID: 3390ccef12a67994596455be1041f2fa
+  m_SerializeEntries:
+  - m_GUID: 1224d69e1592d624cbde93d0f7383d91
+    m_Address: Naninovel/Spawn/ShakeCharacter
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1c5b86cf3cfbb1f44ae5641699077da4
+    m_Address: Naninovel/Spawn/ShakeCamera
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2795040988e866646801c80024c50be1
+    m_Address: Naninovel/Spawn/ShakePrinter
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7bf06fa813bb9c34daf521998fa72ab1
+    m_Address: Naninovel/Spawn/Animate
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9f4e71cb27fffa04486737d2cf8d622d
+    m_Address: Naninovel/Spawn/Snow
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9f56c556ba32fd54fae62347c25a8145
+    m_Address: Naninovel/Spawn/ShakeBackground
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a9117e2fa90704d45b3e1461596c11ee
+    m_Address: Naninovel/Spawn/Rain
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: be75a73ecccb90b4caa5c14edb9ac467
+    m_Address: Naninovel/Spawn/DigitalGlitch
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c4bf810b9b6cc9f44a58fd670678ded4
+    m_Address: Naninovel/Spawn/SunShafts
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d2973cea91b098548b2420c18de4c36a
+    m_Address: Naninovel/Spawn/WisdomKey
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e466d9326b30a4b49a3dad428b4d9968
+    m_Address: Naninovel/Spawn/Blur
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ea76638b26a915946b62907dd1e776fd
+    m_Address: Naninovel/Spawn/DepthOfField
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: fba31b37869928d41929635dbc826bd3, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 13873527cedb03041a77f345d0cd5d1b, type: 2}
+    - {fileID: 11400000, guid: 933d6291456c561429abb87cc36c4503, type: 2}

@@ -19,8 +19,8 @@ MonoBehaviour:
   EnableBuildProcessing: 1
   UseAddressables: 1
   AutoBuildBundles: 1
-  AllowAddressableInEditor: 0
-  GroupByCategory: 0
+  AllowAddressableInEditor: 1
+  GroupByCategory: 1
   ExtraLabels: []
   LocalRootPath: '%DATA%/Resources'
   VideoStreamExtension: .mp4

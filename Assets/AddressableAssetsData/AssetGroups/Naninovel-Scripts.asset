@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Naninovel-Scripts
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Naninovel-Scripts
+  m_GUID: 3ab689501f632a24a913c33cb3b5c273
+  m_SerializeEntries:
+  - m_GUID: 094409048197e074dae48faeea05e091
+    m_Address: Naninovel/Scripts/Start
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 353c9c783e289554faeeba325641ecfe
+    m_Address: Naninovel/Scripts/Y2_8
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 53231abf57fe05f46a43b29ddef52ef8
+    m_Address: Naninovel/Scripts/Title
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6b4da2c2fbcf1eb4b963591bbb381be1
+    m_Address: Naninovel/Scripts/L4_6
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: afb9a65219499d1498ed207ead2e448b
+    m_Address: Naninovel/Scripts/Map
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fb3024af654858d4c8d486f2b46a9032
+    m_Address: Naninovel/Scripts/X2_6
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: fba31b37869928d41929635dbc826bd3, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 6a34cbf362df9504c8ec24c86ad02254, type: 2}
+    - {fileID: 11400000, guid: 3bbd2fbd7e8965d4d90a0dbcc620a1c4, type: 2}

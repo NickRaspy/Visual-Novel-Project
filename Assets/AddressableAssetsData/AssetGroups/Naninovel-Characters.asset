@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Naninovel-Characters
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Naninovel-Characters
+  m_GUID: 0196c7859794c65409e0e791e18ea4cc
+  m_SerializeEntries:
+  - m_GUID: 06c0dd211c532b44eae92ec0774c3307
+    m_Address: Naninovel/Characters/rect/Angry
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 12b7c21dd6cab204cb9301b6d20cf67c
+    m_Address: Naninovel/Characters/rect/Blushed
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2e291ec98e97f724fa00372261c3c4d5
+    m_Address: Naninovel/Characters/ciri/Blush
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3800ae4587ef4dc46911aaaf4782c808
+    m_Address: Naninovel/Characters/ciri/Angry
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 73047b1f829b19c469ae26da4f9825ed
+    m_Address: Naninovel/Characters/ciri/Worried
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8faf05ae5d518dd4695950e21f2e8403
+    m_Address: Naninovel/Characters/rect/Normal
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cb56e41162951bc4195550ee7c355b45
+    m_Address: Naninovel/Characters/ciri/Normal
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d8c88883c21e40744b3fc93869486da3
+    m_Address: Naninovel/Characters/rect/Worried
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: fba31b37869928d41929635dbc826bd3, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: d28ef942690f392489e7ed8c5ca3ccd2, type: 2}
+    - {fileID: 11400000, guid: 4ba275c366aa0c144a90a377d0ca438d, type: 2}

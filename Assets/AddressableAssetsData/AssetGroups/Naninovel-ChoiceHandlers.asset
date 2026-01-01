@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Naninovel-ChoiceHandlers
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Naninovel-ChoiceHandlers
+  m_GUID: a689bf1cceb30064b99c4eca32e2d12f
+  m_SerializeEntries:
+  - m_GUID: 0e61df696cabbea448510879ee732b00
+    m_Address: Naninovel/ChoiceHandlers/ChatReply
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1f6aa29000e839c409e6a9c0704adc96
+    m_Address: Naninovel/ChoiceHandlers/ButtonList
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4fa6d62f894ae6e4698bfa8af59e7942
+    m_Address: Naninovel/ChoiceHandlers/ButtonArea
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: fba31b37869928d41929635dbc826bd3, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: f681c7f523df1d44b9fb310b6f3035e1, type: 2}
+    - {fileID: 11400000, guid: 72b956f554f2ebb499e44b5a2361aac9, type: 2}

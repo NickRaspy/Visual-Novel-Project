@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Naninovel-Audio
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Naninovel-Audio
+  m_GUID: 1e7cea7dda4b8bc4c9567dbaf0ad6704
+  m_SerializeEntries:
+  - m_GUID: 8e6aac80af974494e99be6f31beb0575
+    m_Address: Naninovel/Audio/Space_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c203ab9305525e24d92ac5a94d215bd6
+    m_Address: Naninovel/Audio/Space_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e1313bc2bf40814448a6c336d2aced17
+    m_Address: Naninovel/Audio/Space_3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: fba31b37869928d41929635dbc826bd3, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 0c4647073db31d643a34da37656397bb, type: 2}
+    - {fileID: 11400000, guid: d7fdee43386ac3744b4ef4ee6d6bdbe1, type: 2}
